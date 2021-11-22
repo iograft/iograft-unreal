@@ -13,7 +13,7 @@ Below are the steps required to setup a new environment in iograft for executing
 4. Update the **Subcore Launch Command** to "iogunreal_subcore" (matching the subcore executor name in the bin folder of the iograft-unreal repository). Note: On Windows this will automatically resolve to the "iogunreal_subcore.bat" script.
 5. Update the **Path** to include the "bin" directory of the iograft-unreal repository.
 6. Update the **Path** to include the directory containing the UE4Editor-Cmd.exe executable (this is usually in the Engine/Binaries/Win64 directory of the Unreal install).
-7. Update the **Python Path** entry for `...\iograft\python39` switching "python39" for the version on Python in Unreal: "python37".
+7. Update the **Python Path** entry for `...\iograft\python39` by switching "python39" to the version of Python used in Unreal: "python37".
 8. Save the environment, use the Environment menu to switch to the Unreal environment just created, and start creating nodes to process in Unreal.
 
 ## Unreal Subcore for iograft
