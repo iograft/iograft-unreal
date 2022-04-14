@@ -1,4 +1,4 @@
-# Copyright 2021 Fabrica Software, LLC
+# Copyright 2022 Fabrica Software, LLC
 
 import iograft
 import iobasictypes
@@ -6,7 +6,7 @@ import iobasictypes
 
 class ImportAsset(iograft.Node):
     """ Import an asset into Unreal from the given file path. """
-    asset_path = iograft.InputDefinition("asset_filepath", iobasictypes.String())
+    asset_path = iograft.InputDefinition("asset_filepath", iobasictypes.Path())
     project_path = iograft.InputDefinition("project_path",
                                            iobasictypes.String())
 

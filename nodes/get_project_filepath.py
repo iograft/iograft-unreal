@@ -1,4 +1,4 @@
-# Copyright 2021 Fabrica Software, LLC
+# Copyright 2022 Fabrica Software, LLC
 
 import iograft
 import iobasictypes
@@ -7,7 +7,7 @@ import iobasictypes
 class GetProjectFilePath(iograft.Node):
     """ Return the path to the current Unreal project file. """
     project_path = iograft.OutputDefinition("project_path",
-                                            iobasictypes.String())
+                                            iobasictypes.Path())
 
     @classmethod
     def GetDefinition(cls):
