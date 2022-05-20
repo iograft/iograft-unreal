@@ -2,7 +2,7 @@
 
 This repository contains scripts and nodes for running iograft within Unreal Engine. It includes an Unreal Subcore command, and a couple of example nodes for Unreal.
 
-## Getting Started with a Maya Environment
+## Getting Started with an Unreal Environment
 
 Below are the steps required to setup a new environment in iograft for executing nodes in an Unreal subprocess:
 
