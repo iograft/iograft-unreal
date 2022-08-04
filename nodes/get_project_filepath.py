@@ -12,6 +12,7 @@ class GetProjectFilePath(iograft.Node):
     @classmethod
     def GetDefinition(cls):
         node = iograft.NodeDefinition("get_project_path")
+        node.SetMenuPath("Unreal")
         node.AddOutput(cls.project_path)
         return node
 

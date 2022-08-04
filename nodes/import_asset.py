@@ -16,6 +16,7 @@ class ImportAsset(iograft.Node):
     @classmethod
     def GetDefinition(cls):
         node = iograft.NodeDefinition("import_asset")
+        node.SetMenuPath("Unreal")
         node.AddInput(cls.asset_path)
         node.AddInput(cls.project_path)
         node.AddOutput(cls.imported_objects)
