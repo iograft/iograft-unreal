@@ -21,6 +21,10 @@ Below are the steps required to setup a new environment in iograft for executing
 
 The Unreal Subcore for iograft (`iogunreal_subcore.py`) defines an iograft Subcore for executing nodes in the Unreal environment. The key feature of this subcore is that it executes all nodes within the main thread using the `iograft.MainThreadSubcore` class. Many of the Unreal Python commands are required to run from the Game Thread, and this MainThreadSubcore ensures that that is the case.
 
+### Full Editor Subcore
+
+In some cases, it might be necessary to launch the FULL Unreal Editor rather than the headless version of Unreal. In these cases, there is an additional subcore available (`iogunreal_editor_subcore`) which launches the full editor, runs the Subcore, and shuts down when the subcore is terminated.
+
 ### Setting the Unreal Project Path
 
 When launching the Unreal subcore from iograft, the Unreal project to load is specified via the `UE_PROJECT_PATH` environment variable. There is some flexibility in how this is set. It can be set in the terminal prior to launching iograft, it can be set as an environment variable within iograft's environment json for the Unreal environment, etc.
