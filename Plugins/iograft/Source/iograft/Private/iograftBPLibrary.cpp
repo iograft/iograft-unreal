@@ -5,7 +5,9 @@
 #include "CoreGlobals.h"
 #include "EditorStyleSet.h"
 #include "Framework/Notifications/NotificationManager.h"
+#include "Runtime/Launch/Resources/Version.h"
 #include "Widgets/Notifications/SNotificationList.h"
+
 #include "iograftCoreEngine.h"
 #include "iograftSettings.h"
 #include "iograftStyle.h"
@@ -17,14 +19,14 @@ UIograftBPLibrary::UIograftBPLibrary(
 {}
 
 
-void 
+void
 UIograftBPLibrary::InitializeIograftAPI() {
 	UIograftCoreEngine* engine = UIograftCoreEngine::Get();
 	if (engine != nullptr)
 	{
 		engine->StartCore();
 	}
-	else 
+	else
 	{
 		UE_LOG(LogTemp, Error,
 				TEXT("No iograft Core engine has been registered."));
@@ -82,7 +84,11 @@ UIograftBPLibrary::PostNotification(const FString& message, bool IsWarning)
 	Info.ExpireDuration = 5.0f;
 
 	if (IsWarning) {
+	#if ENGINE_MAJOR_VERSION == 4
 		Info.Image = FEditorStyle::GetBrush("Icons.Warning");
+	#else
+		Info.Image = FAppStyle::GetBrush("Icons.Warning");
+	#endif
 	}
 	else {
 		Info.Image = FIograftStyle::Get().GetBrush("iograft.Icon");

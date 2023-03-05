@@ -4,7 +4,9 @@
 
 #include "ISettingsModule.h"
 #include "Misc/MessageDialog.h"
+#include "Runtime/Launch/Resources/Version.h"
 #include "ToolMenus.h"
+
 #include "iograftCommands.h"
 #include "iograftCoreEngine.h"
 #include "iograftSettings.h"
@@ -163,8 +165,13 @@ FIograftModule::RegisterMenus()
 	FToolMenuOwnerScoped OwnerScoped(this);
 
 	{
+	#if ENGINE_MAJOR_VERSION == 4
+		UToolMenu* Menu = UToolMenus::Get()->ExtendMenu(
+									"LevelEditor.LevelEditorToolBar");
+	#else
 		UToolMenu* Menu = UToolMenus::Get()->ExtendMenu(
 									"LevelEditor.LevelEditorToolBar.User");
+	#endif
 		FToolMenuSection& Section = Menu->FindOrAddSection("iograft");
 		{
 			FToolMenuEntry Entry = FToolMenuEntry::InitComboButton(

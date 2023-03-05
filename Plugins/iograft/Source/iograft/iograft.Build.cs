@@ -13,7 +13,6 @@ public class iograft : ModuleRules
 			{
 				"Core",
 				"CoreUObject",
-				"EditorFramework",
 				"EditorStyle",
 				"Engine",
 				"InputCore",

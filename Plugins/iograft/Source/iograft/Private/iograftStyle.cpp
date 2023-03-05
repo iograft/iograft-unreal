@@ -5,12 +5,11 @@
 #include "Framework/Application/SlateApplication.h"
 #include "Interfaces/IPluginManager.h"
 #include "Styling/SlateStyle.h"
-#include "Styling/SlateStyleMacros.h"
 #include "Styling/SlateStyleRegistry.h"
 
 
 const FVector2D Icon40x40(40.0f, 40.0f);
-#define RootToContentDir Style->RootToContentDir
+#define IMAGE_BRUSH(RelativePath, ...) FSlateImageBrush(Style->RootToContentDir(RelativePath, TEXT(".png")), __VA_ARGS__)
 
 TSharedPtr<FSlateStyleSet> FIograftStyle::IograftStyleInstance = nullptr;
 
@@ -73,7 +72,6 @@ FIograftStyle::Create()
 		IPluginManager::Get().FindPlugin("iograft")->GetBaseDir() /
 															TEXT("Resources"));
 
-	Style->Set("iograft.Icon",
-				new IMAGE_BRUSH_SVG(TEXT("iograft"), Icon40x40));
+	Style->Set("iograft.Icon", new IMAGE_BRUSH(TEXT("iograft_40x"), Icon40x40));
 	return Style;
 }
