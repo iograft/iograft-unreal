@@ -1,0 +1,33 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "0.1",
+	"FriendlyName": "iograft Plugin",
+	"Description": "iograft integration for Unreal Engine",
+	"Category": "Editor",
+	"CreatedBy": "Fabrica Software, LLC",
+	"CreatedByURL": "https://iograft.com",
+	"DocsURL": "https://github.com/iograft/iograft-unreal",
+	"MarketplaceURL": "",
+	"SupportURL": "https://forums.iograft.com",
+	"CanContainContent": true,
+	"IsBetaVersion": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "iograft",
+			"Type": "Editor",
+			"LoadingPhase": "Default"
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "PythonScriptPlugin",
+			"Enabled": true
+		},
+		{
+			"Name": "EditorScriptingUtilities",
+			"Enabled": true
+		}
+	]
+}
