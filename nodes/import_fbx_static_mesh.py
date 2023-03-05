@@ -4,6 +4,8 @@ import iograft
 import iobasictypes
 import unreal
 
+from iogunreal_threading import unreal_game_thread
+
 
 class ImportFBXStaticMesh(iograft.Node):
     """
@@ -48,6 +50,7 @@ class ImportFBXStaticMesh(iograft.Node):
     def Create():
         return ImportFBXStaticMesh()
 
+    @unreal_game_thread
     def Process(self, data):
         filename = iograft.GetInput(self.filename, data)
         destination_path = iograft.GetInput(self.destination_path, data)

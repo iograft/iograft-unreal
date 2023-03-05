@@ -4,6 +4,8 @@ import iograft
 import iobasictypes
 import unreal
 
+from iogunreal_threading import unreal_game_thread
+
 
 class CreateLevel(iograft.Node):
     """
@@ -34,6 +36,7 @@ class CreateLevel(iograft.Node):
     def Create():
         return CreateLevel()
 
+    @unreal_game_thread
     def Process(self, data):
         level_name = iograft.GetInput(self.level_name, data)
         destination_path = iograft.GetInput(self.destination_path, data)

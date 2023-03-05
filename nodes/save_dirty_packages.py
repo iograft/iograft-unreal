@@ -4,6 +4,8 @@ import iograft
 import iobasictypes
 import unreal
 
+from iogunreal_threading import unreal_game_thread
+
 
 class SaveDirtyPackages(iograft.Node):
     """
@@ -34,6 +36,7 @@ class SaveDirtyPackages(iograft.Node):
     def Create():
         return SaveDirtyPackages()
 
+    @unreal_game_thread
     def Process(self, data):
         save_maps = iograft.GetInput(self.save_maps, data)
         save_content = iograft.GetInput(self.save_content, data)

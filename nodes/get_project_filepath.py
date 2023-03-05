@@ -3,6 +3,8 @@
 import iograft
 import iobasictypes
 
+from iogunreal_threading import unreal_game_thread
+
 
 class GetProjectFilePath(iograft.Node):
     """ Return the path to the current Unreal project file. """
@@ -20,6 +22,7 @@ class GetProjectFilePath(iograft.Node):
     def Create():
         return GetProjectFilePath()
 
+    @unreal_game_thread
     def Process(self, data):
         import unreal
 

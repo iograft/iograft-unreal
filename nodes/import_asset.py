@@ -3,6 +3,8 @@
 import iograft
 import iobasictypes
 
+from iogunreal_threading import unreal_game_thread
+
 
 class ImportAsset(iograft.Node):
     """ Import an asset into Unreal from the given file path. """
@@ -26,6 +28,7 @@ class ImportAsset(iograft.Node):
     def Create():
         return ImportAsset()
 
+    @unreal_game_thread
     def Process(self, data):
         import unreal
 
