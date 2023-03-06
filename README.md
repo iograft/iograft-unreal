@@ -13,9 +13,8 @@ Below are the steps required to setup a new environment in iograft for executing
 5. Update the **Path** to include the "bin" directory of the iograft-unreal repository.
 6. Update the **Path** to include the directory containing the UE4Editor-Cmd.exe executable for UE4 or the UnrealEditor-Cmd.exe executable for UE5 (this is usually in the Engine/Binaries/Win64 directory of the Unreal install).
 7. Update the **Python Path** entry for `...\iograft\python39` by switching "python39" to the version of Python used in Unreal: "python37" for UE4 or leave as "python39" for UE5.
-8. Add an **Environment variable** named `UE_MAJOR_VERSION` and set to the major version of Unreal being used (i.e. 4 for UE4, 5 for UE5).
-9. Set the UE_PROJECT_PATH environment variable to the Unreal project being used with iograft. See: [Setting the Unreal Project Path](#setting-the-unreal-project-path)
-10. Save the environment, use the Environment menu to switch to the Unreal environment just created, and start creating nodes to process in Unreal.
+8. Set the UE_PROJECT_PATH environment variable to the Unreal project being used with iograft. See: [Setting the Unreal Project Path](#setting-the-unreal-project-path)
+9. Save the environment, use the Environment menu to switch to the Unreal environment just created, and start creating nodes to process in Unreal.
 
 ## Unreal Subcore for iograft
 
