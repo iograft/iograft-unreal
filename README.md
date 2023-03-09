@@ -68,6 +68,7 @@ In some cases, it might be necessary to launch the FULL Unreal Editor rather tha
 ## iograft Plugin for Unreal
 
 This repository includes a plugin for using iograft interactively within Unreal Engine. To install the plugin, copy the `iograft` directory in this repository's "Plugins" directory into the "Plugins" directory of your Unreal project. On the next launch of your project, you will be prompted to build the iograft plugin:
+
 ![rebuild iograft plugin](https://user-images.githubusercontent.com/565780/224118721-a6b7e6e1-d20f-40d8-8265-0092e0b61a48.png)
 
 Once built and Unreal has opened, open the Project Settings and go to the "iograft" settings. The two settings that are needed are:
