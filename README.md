@@ -1,20 +1,60 @@
 # iograft for Unreal Engine
 
-This repository contains scripts and nodes for running iograft within Unreal Engine. It includes an Unreal Subcore command, and a couple of example nodes for Unreal.
+This repository contains scripts and nodes for running iograft within Unreal Engine. It includes an Unreal Subcore command, example nodes for Unreal, and an Unreal Plugin for using iograft interactively within Unreal Engine.
+
+iograft supports both Unreal 4 and Unreal 5.
 
 ## Getting Started with an Unreal Environment
 
-Below are the steps required to setup a new environment in iograft for executing nodes in an Unreal subprocess:
+The first step to use iograft with Unreal Engine is to create an Unreal "environment" within iograft. Below are the steps required to setup this environment:
 
 1. Clone the iograft-unreal repository.
-2. Open the iograft Environment Manager and create a new environment for Unreal (i.e. "unreal").
+2. Open the iograft Environment Manager and create a new environment for Unreal (i.e. "unreal5").
 3. Update the **Plugin Path** to include the "nodes" directory of the iograft-unreal repository.
 4. Update the **Subcore Launch Command** to "iogunreal_subcore" (matching the subcore executor name in the bin folder of the iograft-unreal repository). Note: On Windows this will automatically resolve to the "iogunreal_subcore.bat" script.
 5. Update the **Path** to include the "bin" directory of the iograft-unreal repository.
-6. Update the **Path** to include the directory containing the UE4Editor-Cmd.exe executable for UE4 or the UnrealEditor-Cmd.exe executable for UE5 (this is usually in the Engine/Binaries/Win64 directory of the Unreal install).
-7. Update the **Python Path** entry for `...\iograft\python39` by switching "python39" to the version of Python used in Unreal: "python37" for UE4 or leave as "python39" for UE5.
-8. Set the UE_PROJECT_PATH environment variable to the Unreal project being used with iograft. See: [Setting the Unreal Project Path](#setting-the-unreal-project-path)
-9. Save the environment, use the Environment menu to switch to the Unreal environment just created, and start creating nodes to process in Unreal.
+6. Update the **Path** to include the directory containing the UnrealEditor-Cmd.exe executable for UE5 (this is usually in the Engine/Binaries/Win64 directory of the Unreal install) or the UE4Editor-Cmd.exe executable for UE4.
+7. **UE4**: Update the **Python Path** entry for `...\iograft\python39` by switching "python39" to the version of Python used in Unreal 4: "python37" (Unreal 5 uses python39, so no changes are needed).
+8. Update the **Python Path** to include the "python" directory of the iograft-unreal repository.
+9. **Optional**: Set the UE_PROJECT_PATH environment variable to the Unreal project being used with iograft. See: [Setting the Unreal Project Path](#setting-the-unreal-project-path)
+10. Save the environment, use the Environment menu to switch to the Unreal environment just created, and start creating nodes to process in Unreal.
+
+<details>
+<summary>A full example "unreal5" environment looks like this:</summary>
+```
+{
+    "plugin_path": [
+        "{IOGRAFT_INSTALL_DIR}\\types",
+        "{IOGRAFT_INSTALL_DIR}\\nodes",
+        "{IOGRAFT_USER_CONFIG_DIR}\\types",
+        "{IOGRAFT_USER_CONFIG_DIR}\\nodes",
+        "C:\\Projects\\iograft-unreal\\nodes"
+    ],
+    "subcore": {
+        "launch_command": "iogunreal_subcore"
+    },
+    "path": [
+        "{IOGRAFT_INSTALL_DIR}\\bin",
+        "C:\\Projects\\iograft-unreal\\bin",
+        "C:\\Program Files\\Epic Games\\UE_5.1\\Engine\\Binaries\\Win64"
+    ],
+    "python_path": [
+        "{IOGRAFT_INSTALL_DIR}\\types",
+        "{IOGRAFT_INSTALL_DIR}\\python39",
+        "C:\\Projects\\iograft-unreal\\python"
+    ],
+    "environment_variables": {
+        "PYTHONDONTWRITEBYTECODE": "1",
+        "UE_PROJECT_PATH": "C:\\Projects\\iograftdemo_ue5\\iograftdemo_ue5.uproject"
+    },
+    "ui": {
+        "icon_file_path": "C:\\Program Files\\Epic Games\\UE_5.1\\Engine\\Build\\Windows\\Resources\\Default.ico"
+    },
+    "appended_environments": [],
+    "name": "unreal5"
+}
+```
+</details>
 
 ## Unreal Subcore for iograft
 
@@ -27,5 +67,3 @@ In some cases, it might be necessary to launch the FULL Unreal Editor rather tha
 ### Setting the Unreal Project Path
 
 When launching the Unreal subcore from iograft, the Unreal project to load is specified via the `UE_PROJECT_PATH` environment variable. There is some flexibility in how this is set. It can be set in the terminal prior to launching iograft, it can be set as an environment variable within iograft's environment json for the Unreal environment, etc.
-
-The project path is set via an environment variable because there is currently a limitation that the subcore launched from iograft cannot directly be passed args from the graph it is running from.
