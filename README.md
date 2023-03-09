@@ -65,6 +65,21 @@ The Unreal Subcore for iograft (`iogunreal_subcore.py`) defines an iograft Subco
 
 In some cases, it might be necessary to launch the FULL Unreal Editor rather than the headless version of Unreal. In these cases, there is an additional subcore available (`iogunreal_editor_subcore`) which launches the full editor, runs the Subcore, and shuts down when the subcore is terminated.
 
-### Setting the Unreal Project Path
+## iograft Plugin for Unreal
+
+This repository includes a plugin for using iograft interactively within Unreal Engine. To install the plugin, copy the `iograft` directory in this repository's "Plugins" directory into the "Plugins" directory of your Unreal project. On the next launch of your project, you will be prompted to build the iograft plugin:
+![rebuild iograft plugin](https://user-images.githubusercontent.com/565780/224118721-a6b7e6e1-d20f-40d8-8265-0092e0b61a48.png)
+
+Once built and Unreal has opened, open the Project Settings and go to the "iograft" settings. The two settings that are needed are:
+1. The name of the iograft environment to use within this project (i.e. [Getting Started with an Unreal Environment](#getting-started-with-an-unreal-environment)).
+2. The iograft install path (by default: `C:/Program Files/iograft`).
+
+![iograft plugin settings](https://user-images.githubusercontent.com/565780/224120288-2650b175-8a7e-4a80-8e38-2c016698d6dd.png)
+
+After updating the settings you will need to restart the Unreal project. When the project is restarted, iograft will be ready to use within Unreal and available on the top toolbar!
+
+![iograft toolbar](https://user-images.githubusercontent.com/565780/224121195-76d0862c-0a11-41b1-b4ac-a5d13ef2f4f6.png)
+
+## Setting the Unreal Project Path
 
 When launching the Unreal subcore from iograft, the Unreal project to load is specified via the `UE_PROJECT_PATH` environment variable. There is some flexibility in how this is set. It can be set in the terminal prior to launching iograft, it can be set as an environment variable within iograft's environment json for the Unreal environment, etc.
